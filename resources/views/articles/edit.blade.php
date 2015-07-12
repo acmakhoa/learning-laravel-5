@@ -1,11 +1,9 @@
 @extends('app')
 @section('content')
-    <h1>Write a New Article</h1>
+    <h1>Edit: {!! $article->title !!}</h1>
     <hr/>
     <form method="POST" action="{{url('articles')}}">
-        @include ('articles.form',['buttonText'=>'Create'])
+        @include ('articles.form',['buttonText'=>'Update'])
     </form>
-
     @include('errors.list')
-
 @stop

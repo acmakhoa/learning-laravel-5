@@ -10,7 +10,8 @@ class Article extends Model
     protected $fillable = [
         'title',
         'body',
-        'published_at'
+        'published_at',
+        'user_id'
     ];
 
     public function scopePublished($query){
@@ -19,5 +20,12 @@ class Article extends Model
 
     public function scopeUnPublished($query){
         $query->where('published_at','>',Carbon::now());
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function writer(){
+       return $this->belongsTo('Blog\User');
     }
 }

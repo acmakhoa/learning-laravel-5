@@ -4,7 +4,7 @@ namespace Blog\Http\Requests;
 
 use Blog\Http\Requests\Request;
 
-class CreateArticleRequest extends Request
+class ArticleRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,6 +27,7 @@ class CreateArticleRequest extends Request
             'title'=>'required',
             'body' => 'required',
             //'published_at'=>'required|date'
+            'user_id'=> 'required'
         ];
     }
 }
